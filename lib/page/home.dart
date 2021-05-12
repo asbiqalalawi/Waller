@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:waller/page/imagedetail.dart';
+import 'package:waller/page/allcategories.dart';
 import 'package:waller/page/search.dart';
 import 'package:waller/widgets/widget.dart';
 
@@ -59,9 +59,18 @@ class _HomeState extends State<Home> {
               Container(
                   margin: EdgeInsets.symmetric(horizontal: 24),
                   alignment: Alignment.centerRight,
-                  child: Text(
-                    "View All",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AllCategories()));
+                    },
+                    child: Text(
+                      "View All",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontFamily: "Poppins"),
+                    ),
                   )),
               SizedBox(
                 height: 16,
@@ -74,27 +83,27 @@ class _HomeState extends State<Home> {
                     children: [
                       CategoriesTile(
                         imgurl: "assets/images/andre-benz.jpg",
-                        title: "Asbiq",
+                        title: "Category",
                       ),
                       CategoriesTile(
                         imgurl: "assets/images/harley-davidson.jpg",
-                        title: "Asbiq",
+                        title: "Category",
                       ),
                       CategoriesTile(
                         imgurl: "assets/images/harley-davidson.jpg",
-                        title: "Asbiq",
+                        title: "Category",
                       ),
                       CategoriesTile(
                         imgurl: "assets/images/harley-davidson.jpg",
-                        title: "Asbiq",
+                        title: "Category",
                       ),
                       CategoriesTile(
                         imgurl: "assets/images/harley-davidson.jpg",
-                        title: "Asbiq",
+                        title: "Category",
                       ),
                       CategoriesTile(
                         imgurl: "assets/images/harley-davidson.jpg",
-                        title: "Asbiq",
+                        title: "Category",
                       ),
                     ],
                   )),
@@ -143,8 +152,9 @@ class CategoriesTile extends StatelessWidget {
                 title,
                 style: TextStyle(
                     color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 15),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    fontFamily: "Poppins"),
               ),
             ),
           ],

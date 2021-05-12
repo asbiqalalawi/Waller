@@ -17,7 +17,7 @@ class _ImageDetailState extends State<ImageDetail> {
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             child: Image.asset(
-              "assets/images/nasa.jpg",
+              "assets/images/orkhan.jpg",
               fit: BoxFit.cover,
             ),
           ),
@@ -28,16 +28,21 @@ class _ImageDetailState extends State<ImageDetail> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Container(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width / 2,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: Colors.black38),
-                  child: Center(
-                    child: Text(
-                      "Save Wallpaper",
-                      style: TextStyle(color: Colors.white70, fontSize: 18),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    height: 50,
+                    width: MediaQuery.of(context).size.width / 2,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.black38),
+                    child: Center(
+                      child: Text(
+                        "Save Wallpaper",
+                        style: TextStyle(color: Colors.white70, fontSize: 18),
+                      ),
                     ),
                   ),
                 ),

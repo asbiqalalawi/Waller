@@ -7,11 +7,11 @@ Widget brand() {
     children: [
       Text(
         "W",
-        style: TextStyle(color: Color(0XFF51435F)),
+        style: TextStyle(color: Color(0XFF51435F), fontFamily: "Salsa", fontSize: 24),
       ),
       Text(
         "aller",
-        style: TextStyle(color: Color(0XFF686BB4)),
+        style: TextStyle(color: Color(0XFF686BB4), fontFamily: "Salsa", fontSize: 24),
       )
     ],
   );
