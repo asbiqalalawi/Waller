@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:waller/page/home.dart';
-import 'package:waller/page/landingpage.dart';
+import 'package:waller/page/splashscreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Waller",
       theme: ThemeData(primaryColor: Colors.white),
-      home: LandingPage(),
+      home: SplashScreen(),
     );
   }
 }
