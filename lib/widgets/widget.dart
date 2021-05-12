@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:waller/page/imagedetail.dart';
 
 Widget brand() {
   return Row(
@@ -16,7 +17,7 @@ Widget brand() {
   );
 }
 
-Widget wallpaperList() {
+Widget wallpaperList(context) {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 16),
     child: GridView.count(
@@ -28,12 +29,18 @@ Widget wallpaperList() {
       crossAxisSpacing: 6,
       children: [
         GridTile(
-          child: Container(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.asset(
-                "assets/images/orkhan.jpg",
-                fit: BoxFit.cover,
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ImageDetail()));
+            },
+            child: Container(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Image.asset(
+                  "assets/images/orkhan.jpg",
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),

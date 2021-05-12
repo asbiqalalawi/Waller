@@ -51,7 +51,7 @@ class _SearchState extends State<Search> {
               SizedBox(
                 height: 16,
               ),
-              wallpaperList()
+              wallpaperList(context)
             ],
           ),
         ),

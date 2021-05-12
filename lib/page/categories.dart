@@ -23,7 +23,7 @@ class _CategoriesState extends State<Categories> {
               SizedBox(
                 height: 16,
               ),
-              wallpaperList()
+              wallpaperList(context)
             ],
           ),
         ),

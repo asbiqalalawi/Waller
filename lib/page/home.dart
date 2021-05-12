@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:waller/page/imagedetail.dart';
 import 'package:waller/page/search.dart';
 import 'package:waller/widgets/widget.dart';
 
@@ -97,7 +98,7 @@ class _HomeState extends State<Home> {
                       ),
                     ],
                   )),
-              wallpaperList()
+              wallpaperList(context)
             ],
           ),
         ),

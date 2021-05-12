@@ -10,6 +10,45 @@ class ImageDetail extends StatefulWidget {
 class _ImageDetailState extends State<ImageDetail> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Stack(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Image.asset(
+              "assets/images/nasa.jpg",
+              fit: BoxFit.cover,
+            ),
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            alignment: Alignment.bottomCenter,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width / 2,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: Colors.black38),
+                  child: Center(
+                    child: Text(
+                      "Save Wallpaper",
+                      style: TextStyle(color: Colors.white70, fontSize: 18),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 100,
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
