@@ -16,7 +16,7 @@ class _SplashScreen extends State<SplashScreen> {
   splashscreenStart() async {
     var duration = const Duration(seconds: 3);
     return Timer(duration, () {
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => LandingPage()),
       );
@@ -35,21 +35,30 @@ class _SplashScreen extends State<SplashScreen> {
             Icon(
               Icons.wallpaper_rounded,
               size: 100.0,
-              color: Colors.red[500],
+              color: Color(0XFF51435F),
             ),
             SizedBox(
               height: 5.0,
             ),
-            Text(
-              "W",
-              style: TextStyle(
-                  color: Color(0XFFD2A5FF), fontFamily: "Salsa", fontSize: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "W",
+                  style: TextStyle(
+                      color: Color(0XFF51435F),
+                      fontFamily: "Salsa",
+                      fontSize: 30),
+                ),
+                Text(
+                  "aller",
+                  style: TextStyle(
+                      color: Color(0XFF686BB4),
+                      fontFamily: "Salsa",
+                      fontSize: 30),
+                )
+              ],
             ),
-            Text(
-              "aller",
-              style: TextStyle(
-                  color: Colors.white, fontFamily: "Salsa", fontSize: 30),
-            )
           ],
         ),
       ),
