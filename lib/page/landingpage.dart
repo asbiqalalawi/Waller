@@ -26,17 +26,9 @@ class LandingPage extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          Stack(
-            children: [
-              Container(
-                alignment: Alignment(0, -0.2),
-                child: Image.asset("assets/images/crypto-camera.png"),
-              ),
-              // Container(
-              //   alignment: Alignment(0, 0.1),
-              //   child: Image.asset("assets/images/cyw.png"),
-              // ),
-            ],
+          Container(
+            alignment: Alignment(0, -0.2),
+            child: Image.asset("assets/images/crypto-camera.png"),
           ),
           Container(
             alignment: Alignment(-0.2, 0.05),
