@@ -90,19 +90,11 @@ class _HomeState extends State<Home> {
                         title: "Category",
                       ),
                       CategoriesTile(
-                        imgurl: "assets/images/harley-davidson.jpg",
+                        imgurl: "assets/images/nasa.jpg",
                         title: "Category",
                       ),
                       CategoriesTile(
-                        imgurl: "assets/images/harley-davidson.jpg",
-                        title: "Category",
-                      ),
-                      CategoriesTile(
-                        imgurl: "assets/images/harley-davidson.jpg",
-                        title: "Category",
-                      ),
-                      CategoriesTile(
-                        imgurl: "assets/images/harley-davidson.jpg",
+                        imgurl: "assets/images/orkhan.jpg",
                         title: "Category",
                       ),
                     ],

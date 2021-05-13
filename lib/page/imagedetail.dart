@@ -17,8 +17,28 @@ class _ImageDetailState extends State<ImageDetail> {
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             child: Image.asset(
-              "assets/images/orkhan.jpg",
+              "assets/images/andre-benz.jpg",
               fit: BoxFit.cover,
+            ),
+          ),
+          Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: new AppBar(
+              leading: Builder(
+                builder: (BuildContext context) {
+                  return IconButton(
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.black,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  );
+                },
+              ),
+              backgroundColor: Colors.transparent,
+              elevation: 0.0,
             ),
           ),
           Container(
