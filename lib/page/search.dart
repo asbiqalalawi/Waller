@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:waller/model/wallpaper_model.dart';
 import 'package:waller/widgets/widget.dart';
 
 class Search extends StatefulWidget {
@@ -9,6 +10,8 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
+  List<WallpaperModel> wallpapers = new List();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +67,7 @@ class _SearchState extends State<Search> {
               SizedBox(
                 height: 16,
               ),
-              wallpaperList(context)
+              wallpaperList(wallpapers: wallpapers, context: context)
             ],
           ),
         ),

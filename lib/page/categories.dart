@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:waller/model/wallpaper_model.dart';
 import 'package:waller/widgets/widget.dart';
 
 class Categories extends StatefulWidget {
@@ -9,6 +10,8 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
+  List<WallpaperModel> wallpapers = new List();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +39,7 @@ class _CategoriesState extends State<Categories> {
               SizedBox(
                 height: 16,
               ),
-              wallpaperList(context)
+              wallpaperList(wallpapers: wallpapers, context: context)
             ],
           ),
         ),

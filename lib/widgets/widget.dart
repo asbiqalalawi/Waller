@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:waller/model/wallpaper_model.dart';
 import 'package:waller/page/imagedetail.dart';
 
 Widget brand() {
@@ -19,7 +20,7 @@ Widget brand() {
   );
 }
 
-Widget wallpaperList(context) {
+Widget wallpaperList({List<WallpaperModel> wallpapers, context}) {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 16),
     child: GridView.count(
@@ -29,144 +30,17 @@ Widget wallpaperList(context) {
       childAspectRatio: 0.6,
       mainAxisSpacing: 6,
       crossAxisSpacing: 6,
-      children: [
-        GridTile(
-          child: GestureDetector(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ImageDetail()));
-            },
+      children: wallpapers.map((wallpaper) {
+        return GridTile(
             child: Container(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  "assets/images/andre-benz.jpg",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-        ),
-        GridTile(
-          child: GestureDetector(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ImageDetail()));
-            },
-            child: Container(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  "assets/images/andre-benz.jpg",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-        ),
-        GridTile(
-          child: GestureDetector(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ImageDetail()));
-            },
-            child: Container(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  "assets/images/andre-benz.jpg",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-        ),
-        GridTile(
-          child: GestureDetector(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ImageDetail()));
-            },
-            child: Container(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  "assets/images/andre-benz.jpg",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-        ),
-        GridTile(
-          child: GestureDetector(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ImageDetail()));
-            },
-            child: Container(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  "assets/images/andre-benz.jpg",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-        ),
-        GridTile(
-          child: GestureDetector(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ImageDetail()));
-            },
-            child: Container(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  "assets/images/andre-benz.jpg",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-        ),
-        GridTile(
-          child: GestureDetector(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ImageDetail()));
-            },
-            child: Container(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  "assets/images/andre-benz.jpg",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-        ),
-        GridTile(
-          child: GestureDetector(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ImageDetail()));
-            },
-            child: Container(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  "assets/images/andre-benz.jpg",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-        ),
-      ],
+          child: ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.network(
+                wallpaper.src.portrait,
+                fit: BoxFit.cover,
+              )),
+        ));
+      }).toList(),
     ),
   );
 }
