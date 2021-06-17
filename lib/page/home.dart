@@ -5,10 +5,10 @@ import 'package:waller/data/data.dart';
 import 'package:waller/model/categories_model.dart';
 import 'package:waller/model/wallpaper_model.dart';
 import 'package:waller/page/allcategories.dart';
+import 'package:waller/page/imagedetail.dart';
 import 'package:waller/page/search.dart';
 import 'package:waller/widgets/widget.dart';
 import 'package:http/http.dart' as http;
-
 import 'categories.dart';
 
 class Home extends StatefulWidget {
@@ -21,6 +21,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   List<WallpaperModel> wallpapers = new List();
   List<CategoriesModel> categories = new List();
+
+  TextEditingController searchController = new TextEditingController();
 
   getTrendingWallpapers() async {
     var response = await http.get(
@@ -50,7 +52,7 @@ class _HomeState extends State<Home> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: brand(),
-        elevation: 0,
+        elevation: 0.0,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -64,22 +66,25 @@ class _HomeState extends State<Home> {
                 margin: EdgeInsets.symmetric(horizontal: 24),
                 child: Row(
                   children: [
+                    Expanded(
+                      child: TextField(
+                        controller: searchController,
+                        decoration: InputDecoration(
+                            hintText: "Search", border: InputBorder.none),
+                      ),
+                    ),
                     GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Search()));
+                                  builder: (context) => Search(
+                                        searchQuery: searchController.text,
+                                      )));
                         },
                         child: Icon(Icons.search)),
                     SizedBox(
                       width: 10,
-                    ),
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                            hintText: "Search", border: InputBorder.none),
-                      ),
                     ),
                   ],
                 ),
@@ -104,10 +109,10 @@ class _HomeState extends State<Home> {
                     ),
                   )),
               SizedBox(
-                height: 16,
+                height: 10,
               ),
               Container(
-                height: 80,
+                height: 70,
                 child: ListView.builder(
                     padding: EdgeInsets.symmetric(horizontal: 18),
                     itemCount: categories.length,
@@ -162,34 +167,44 @@ class CategoriesTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Stack(children: <Widget>[
-      ClipRRect(
-          borderRadius: BorderRadius.circular(12),
-          child: Image.network(
-            imgUrl,
-            height: 50,
-            width: 100,
-            fit: BoxFit.cover,
-          )),
-      Container(
-        margin: EdgeInsets.only(right: 4),
-        decoration: BoxDecoration(
-          color: Colors.black26,
-          borderRadius: BorderRadius.circular(8),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Categories(
+                      categoriesName: title.toLowerCase(),
+                    )));
+      },
+      child: Container(
+          child: Stack(children: <Widget>[
+        ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.network(
+              imgUrl,
+              height: 50,
+              width: 100,
+              fit: BoxFit.cover,
+            )),
+        Container(
+          margin: EdgeInsets.only(right: 4),
+          decoration: BoxDecoration(
+            color: Colors.black26,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          height: 50,
+          width: 100,
+          alignment: Alignment.center,
+          child: Text(
+            title,
+            style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
+                fontFamily: "Poppins"),
+          ),
         ),
-        height: 50,
-        width: 100,
-        alignment: Alignment.center,
-        child: Text(
-          title,
-          style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 15,
-              fontFamily: "Poppins"),
-        ),
-      ),
-    ]));
+      ])),
+    );
   }
 }

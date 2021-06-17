@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ImageDetail extends StatefulWidget {
-  ImageDetail({Key key}) : super(key: key);
+  final String imgUrl;
+  ImageDetail({@required this.imgUrl});
+
+  // ImageDetail({Key key}) : super(key: key);
 
   @override
   _ImageDetailState createState() => _ImageDetailState();
@@ -13,12 +16,15 @@ class _ImageDetailState extends State<ImageDetail> {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: Image.asset(
-              "assets/images/andre-benz.jpg",
-              fit: BoxFit.cover,
+          Hero(
+            tag: widget.imgUrl,
+            child: Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Image.network(
+                widget.imgUrl,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Scaffold(
