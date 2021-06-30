@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:dio/dio.dart';
@@ -89,20 +88,31 @@ class _ImageDetailState extends State<ImageDetail> {
     );
   }
 
-  _save() async {
-    if (Platform.isAndroid) {
-      await _askPermission();
-    }
-    var response = await Dio()
-        .get(widget.imgUrl, options: Options(responseType: ResponseType.bytes));
-    final result =
-        await ImageGallerySaver.saveImage(Uint8List.fromList(response.data));
-    print(result);
-    Navigator.pop(context);
-  }
+  // _save() async {
+  // //   if (Platform.isAndroid) {
+  // //     await _askPermission();
+  // //   }
+  // //   var response = await Dio()
+  // //       .get(widget.imgUrl, options: Options(responseType: ResponseType.bytes));
+  // //   final result =
+  // //       await ImageGallerySaver.saveImage(Uint8List.fromList(response.data));
+  // //   print(result);
+  // //   Navigator.pop(context);
+  // // }
 
-  _askPermission() async {
-    PermissionStatus permission = await PermissionHandler()
-        .checkPermissionStatus(PermissionGroup.storage);
+  // // _askPermission() async {
+  // //   PermissionStatus permission = await PermissionHandler()
+  // //       .checkPermissionStatus(PermissionGroup.storage);
+  // // }
+
+  _save() async {
+    var status = await Permission.storage.request();
+    if (status.isGranted) {
+      var response = await Dio().get(widget.imgUrl,
+          options: Options(responseType: ResponseType.bytes));
+      final result =
+          await ImageGallerySaver.saveImage(Uint8List.fromList(response.data));
+      print(result);
+    }
   }
 }
