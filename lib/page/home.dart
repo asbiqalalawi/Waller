@@ -5,7 +5,6 @@ import 'package:waller/data/data.dart';
 import 'package:waller/model/categories_model.dart';
 import 'package:waller/model/wallpaper_model.dart';
 import 'package:waller/page/allcategories.dart';
-import 'package:waller/page/imagedetail.dart';
 import 'package:waller/page/search.dart';
 import 'package:waller/widgets/widget.dart';
 import 'package:http/http.dart' as http;
@@ -125,30 +124,6 @@ class _HomeState extends State<Home> {
                       );
                     }),
               ),
-              // Container(
-              //     height: 80,
-              //     child: ListView(
-              //       padding: EdgeInsets.symmetric(horizontal: 24),
-              //       scrollDirection: Axis.horizontal,
-              //       children: [
-              //         CategoriesTile(
-              //           imgurl: "assets/images/andre-benz.jpg",
-              //           title: "Category",
-              //         ),
-              //         CategoriesTile(
-              //           imgurl: "assets/images/harley-davidson.jpg",
-              //           title: "Category",
-              //         ),
-              //         CategoriesTile(
-              //           imgurl: "assets/images/nasa.jpg",
-              //           title: "Category",
-              //         ),
-              //         CategoriesTile(
-              //           imgurl: "assets/images/orkhan.jpg",
-              //           title: "Category",
-              //         ),
-              //       ],
-              //     )),
               wallpaperList(wallpapers: wallpapers, context: context),
               SizedBox(
                 height: 16,

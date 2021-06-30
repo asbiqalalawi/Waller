@@ -1,4 +1,10 @@
+import 'dart:io';
+import 'dart:typed_data';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class ImageDetail extends StatefulWidget {
   final String imgUrl;
@@ -56,7 +62,7 @@ class _ImageDetailState extends State<ImageDetail> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.pop(context);
+                    _save();
                   },
                   child: Container(
                     height: 50,
@@ -81,5 +87,22 @@ class _ImageDetailState extends State<ImageDetail> {
         ],
       ),
     );
+  }
+
+  _save() async {
+    if (Platform.isAndroid) {
+      await _askPermission();
+    }
+    var response = await Dio()
+        .get(widget.imgUrl, options: Options(responseType: ResponseType.bytes));
+    final result =
+        await ImageGallerySaver.saveImage(Uint8List.fromList(response.data));
+    print(result);
+    Navigator.pop(context);
+  }
+
+  _askPermission() async {
+    PermissionStatus permission = await PermissionHandler()
+        .checkPermissionStatus(PermissionGroup.storage);
   }
 }

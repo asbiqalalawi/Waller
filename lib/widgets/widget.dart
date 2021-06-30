@@ -3,20 +3,14 @@ import 'package:waller/model/wallpaper_model.dart';
 import 'package:waller/page/imagedetail.dart';
 
 Widget brand() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Text(
-        "W",
-        style: TextStyle(
-            color: Color(0XFF51435F), fontFamily: "Salsa", fontSize: 24),
-      ),
-      Text(
-        "aller",
-        style: TextStyle(
-            color: Color(0XFF686BB4), fontFamily: "Salsa", fontSize: 24),
-      )
-    ],
+  return RichText(
+    text: TextSpan(
+      style: TextStyle(fontFamily: "Salsa", fontSize: 24),
+      children: <TextSpan>[
+        TextSpan(text: 'W', style: TextStyle(color: Color(0XFF51435F))),
+        TextSpan(text: 'aller', style: TextStyle(color: Color(0XFF686BB4))),
+      ],
+    ),
   );
 }
 
