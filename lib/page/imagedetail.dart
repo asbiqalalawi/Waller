@@ -1,5 +1,5 @@
 import 'dart:typed_data';
-
+import 'package:cool_alert/cool_alert.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
@@ -62,6 +62,11 @@ class _ImageDetailState extends State<ImageDetail> {
                 GestureDetector(
                   onTap: () {
                     _save();
+                    CoolAlert.show(
+                      context: context,
+                      type: CoolAlertType.success,
+                      text: "Download successful!",
+                    );
                   },
                   child: Container(
                     height: 50,
