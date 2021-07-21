@@ -24,7 +24,7 @@ class _SearchState extends State<Search> {
 
   getSearchWallpapers(String query) async {
     var response = await http.get(
-        Uri.parse("https://api.pexels.com/v1/search?query=$query&per_page=16"),
+        Uri.parse("https://api.pexels.com/v1/search?query=$query&per_page=32"),
         headers: {"Authorization": apiKey});
 
     Map<String, dynamic> jsonData = jsonDecode(response.body);
@@ -78,11 +78,16 @@ class _SearchState extends State<Search> {
                   children: [
                     Expanded(
                       child: TextField(
+                        controller: searchController,
                         decoration: InputDecoration(
                             hintText: "Search", border: InputBorder.none),
                       ),
                     ),
-                    GestureDetector(onTap: () {}, child: Icon(Icons.search)),
+                    GestureDetector(
+                        onTap: () {
+                          getSearchWallpapers(searchController.text);
+                        },
+                        child: Icon(Icons.search)),
                     SizedBox(
                       width: 10,
                     ),

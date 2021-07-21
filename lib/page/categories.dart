@@ -20,7 +20,7 @@ class _CategoriesState extends State<Categories> {
 
   getSearchWallpapers(String query) async {
     var response = await http.get(
-        Uri.parse("https://api.pexels.com/v1/search?query=$query&per_page=16"),
+        Uri.parse("https://api.pexels.com/v1/search?query=$query&per_page=32"),
         headers: {"Authorization": apiKey});
 
     Map<String, dynamic> jsonData = jsonDecode(response.body);
